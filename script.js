@@ -3,9 +3,14 @@ import axios from "axios";
 const containerVideos = document.querySelector(".videos__container");
 
 async function buscarEMostrarVideos() {
+  const urlVideos = import.meta.env.PROD
+    ? "https://gist.githubusercontent.com/Sch3lzin/a78117e07efab0c99a1259bbb6b17580/raw/94803f3e3503885ebf1e29f59fb396a1b18a54b9/videos.json"
+    : "http://localhost:3000/videos";
+  console.log(urlVideos);
+
   try {
-    const busca = await axios.get("http://localhost:3000/videos");
-    const videos = busca.data;
+    const busca = await axios.get(urlVideos);
+    const videos = import.meta.env.PROD ? busca.data.videos : busca.data;
 
     videos.forEach((video) => {
       if (video.categoria == "") {

@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "start": "json-server --watch ./backend/videos.json --port 3000",
     "checar-codigo": "eslint .",
-    "formatar-codigo": "prettier --write ."
+    "formatar-codigo": "prettier --write .",
+    "build-preview": "vite build --watch"
   },
   "devDependencies": {
     "vite": "^7.1.6",
